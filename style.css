@@ -1,0 +1,457 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0c10;
+    font-family: 'Inter', sans-serif;
+    color: #ececec;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #c7a252;
+    --gold-light: #e0bc7c;
+    --dark-bg: #0f1115;
+    --card-bg: #161a22;
+    --border-glow: rgba(199, 162, 82, 0.3);
+    --transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+.section-sub {
+    color: #a0a5b5;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* BUTTONS */
+.btn-primary, .btn-outline, .btn-gold {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #0a0c10;
+}
+
+.btn-primary:hover {
+    background: #e0b159;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(199, 162, 82, 0.3);
+}
+
+.btn-outline {
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #0a0c10;
+    transform: translateY(-2px);
+}
+
+.btn-gold {
+    background: transparent;
+    border: 1px solid rgba(199, 162, 82, 0.5);
+    color: var(--gold-light);
+}
+
+.btn-gold:hover {
+    background: rgba(199, 162, 82, 0.15);
+    border-color: var(--gold);
+}
+
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    flex-wrap: wrap;
+    background: rgba(10, 12, 16, 0.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(199, 162, 82, 0.2);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--gold);
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(120deg, #0b0e14 0%, #10141e 100%), url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format');
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center 30%;
+    padding: 5rem 0 6rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(199, 162, 82, 0.3);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    background: linear-gradient(135deg, #fff, var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: #b9c1d9;
+    margin-bottom: 2rem;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto 1.8rem;
+    color: #cfd8ec;
+}
+
+/* RENTAL CARD */
+.rental-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    padding: 2rem;
+    margin: 2rem 0 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid rgba(199, 162, 82, 0.25);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+}
+
+.rental-info h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.rental-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.detail-item i {
+    color: var(--gold);
+    width: 28px;
+    margin-right: 8px;
+}
+
+/* VEHICLE GRID */
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.vehicle-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid #252b37;
+    text-align: center;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+}
+
+.vehicle-img {
+    height: 200px;
+    background: #1e2430;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: var(--gold-light);
+}
+
+.vehicle-card h4 {
+    font-size: 1.7rem;
+    margin: 1.2rem 1.2rem 0.2rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.vehicle-specs {
+    margin: 0.5rem 1.2rem;
+    color: #afb7c7;
+    font-size: 0.9rem;
+}
+
+.vehicle-specs i {
+    color: var(--gold);
+    margin-right: 6px;
+}
+
+.vehicle-card .btn-outline {
+    margin: 1rem 1.2rem 1.5rem;
+    display: inline-block;
+}
+
+/* COLLECTION BANNER */
+.collection-banner {
+    background: linear-gradient(95deg, #121724, #080b10);
+    border-radius: 32px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 3rem 0;
+    border: 1px solid rgba(199, 162, 82, 0.3);
+}
+
+.collection-banner h3 {
+    font-size: 2.5rem;
+}
+
+/* PILLARS */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.pillar-card {
+    background: #131820;
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    text-align: center;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+}
+
+.pillar-card:hover {
+    border-bottom-color: var(--gold);
+    background: #181f29;
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+/* TESTIMONIALS (REVIEW PAGE) */
+.testimonials-section {
+    background: #0b0f16;
+    padding: 3rem 1rem;
+    margin: 3rem 0;
+    border-radius: 48px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background: #11161f;
+    padding: 2rem;
+    border-radius: 28px;
+    border: 1px solid #262e3a;
+}
+
+.quote-icon {
+    color: var(--gold);
+    font-size: 2rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    margin: 1.2rem 0 1rem;
+    color: var(--gold-light);
+}
+
+.testimonial-reserve, .pillar-reserve-btn, .spotlight-reserve-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+    margin-top: 0.8rem;
+}
+
+.testimonial-reserve:hover, .pillar-reserve-btn:hover {
+    background: var(--gold);
+    color: #0a0c10;
+}
+
+.spotlight-review {
+    background: #0e131f;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 32px;
+    margin-top: 2.5rem;
+    border-left: 4px solid var(--gold);
+}
+
+.spotlight-review i {
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+/* EXPLORE FLEET CTA */
+.explore-fleet-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: radial-gradient(circle at 20% 30%, #1a1f2a, #0a0e14);
+    border-radius: 48px;
+    margin: 3rem 0;
+}
+
+.legacy-note {
+    background: #0f131b;
+    border-radius: 28px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    border: 1px solid #262e3a;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid #1e2532;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    color: #8790a3;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .container {
+        padding: 0 1.2rem;
+    }
+    .rental-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+}
